@@ -133,7 +133,7 @@
         'iap',
         # 'digest',
         # when enterprise
-        # 'web_mobile'
+        'web_mobile'
     ],
     'data': [
         'security/res_groups.xml',

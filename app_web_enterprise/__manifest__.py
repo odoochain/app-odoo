@@ -46,7 +46,7 @@
         'web_enterprise',
         'web_mobile'
     ],
-    'images': [],
+    # 'images': [],
     'data': [
         'views/webclient_templates.xml',
     ],

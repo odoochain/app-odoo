@@ -54,8 +54,9 @@
     'pre_init_hook': 'pre_init_hook',
     'post_init_hook': 'post_init_hook',
     'depends': [
-        'app_base',
+        'app_common',
         'account',
+        'sale',
         'stock',
     ],
     'images': ['static/description/banner.jpg'],
