@@ -1,28 +1,14 @@
 # -*- coding: utf-8 -*-
 
 # Created on 20120-01-05
-# author: 广州尚鹏，https://www.sunpop.cn
-# email: 300883@qq.com
-# resource of Sunpop
+# author: 海南贞人 |  https://www.odoochain.cn
+# email: info@odoochain.cn
+# resource of odooChain
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
-# Odoo12在线用户手册（长期更新）
-# https://www.sunpop.cn/documentation/user/12.0/zh_CN/index.html
-
-# Odoo12在线开发者手册（长期更新）
-# https://www.sunpop.cn/documentation/12.0/index.html
-
-# Odoo10在线中文用户手册（长期更新）
-# https://www.sunpop.cn/documentation/user/10.0/zh_CN/index.html
-
-# Odoo10离线中文用户手册下载
-# https://www.sunpop.cn/odoo10_user_manual_document_offline/
-# Odoo10离线开发手册下载-含python教程，jquery参考，Jinja2模板，PostgresSQL参考（odoo开发必备）
-# https://www.sunpop.cn/odoo10_developer_document_offline/
-
 ##############################################################################
-#    Copyright (C) 2009-TODAY Sunpop.cn Ltd. https://www.sunpop.cn
-#    Author: Ivan Deng，300883@qq.com
+#    Copyright (C) 2009-TODAY odooChain.cn Ltd. https://www.odoochain.cn
+#    Author: info@odoochain.cn
 #    You can modify it under the terms of the GNU LESSER
 #    GENERAL PUBLIC LICENSE (LGPL v3), Version 3.
 #    See <http://www.gnu.org/licenses/>.
@@ -32,11 +18,11 @@
 ##############################################################################
 
 {
-    'name': "Sunpop Odooapp Common Func",
+    'name': "odooChain Odooapp Common Func",
     'version': '14.21.10.18',
-    'author': 'Sunpop.cn',
+    'author': 'odooChain.cn',
     'category': 'Base',
-    'website': 'https://www.sunpop.cn',
+    'website': 'https://www.odoochain.cn',
     'license': 'LGPL-3',
     'sequence': 2,
     'price': 0.00,
@@ -47,22 +33,17 @@
     基础核心，必须没有要被依赖字段及视图等，实现auto_install
     ''',
     'description': '''    
-    Support Odoo 13，12, Enterprise and Community Edition
+    Support Odoo 14,13,12, Enterprise and Community Edition
     1. 
     2. 
     3. Multi-language Support.
     4. Multi-Company Support.
-    5. Support Odoo 13，12, Enterprise and Community Edition
-    ==========
-    1. 
-    2. 
-    3. 多语言支持
-    4. 多公司支持
-    5. Odoo 13, 12, 企业版，社区版，多版本支持
+    5. Support Odoo 14,13,12, Enterprise and Community Edition
     ''',
     'depends': [
         'base',
         'web',
+        'product',
     ],
     'data': [
         # 'security/*.xml',
@@ -80,5 +61,5 @@
     # 'uninstall_hook': 'uninstall_hook',
     'installable': True,
     'application': True,
-    'auto_install': True,
+    'auto_install': False,
 }

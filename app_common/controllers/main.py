@@ -7,7 +7,6 @@ from math import radians, cos, sin, asin, sqrt
 
 from ..lib.user_agents import parse
 
-from odoo import api, http, SUPERUSER_ID, _
 from odoo import http, exceptions
 from odoo.http import request
 
