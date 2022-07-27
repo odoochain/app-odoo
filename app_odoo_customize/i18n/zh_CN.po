@@ -93,7 +93,7 @@ msgstr "<span class=\"col-3 col-lg-2 text-left\">网站与博客</span>"
 #. module: app_odoo_customize
 #: model_terms:ir.ui.view,arch_db:app_odoo_customize.view_app_theme_config_settings
 msgid "<span>Set to False to hide</span>"
-msgstr "<span>设置为 False 则不显示</span>"
+msgstr "<span>设置为 False 则不显示,可以设置为提示代码,例如[Odoochain Dev<br/>({db_name})]</span>"
 
 #. module: app_odoo_customize
 #. openerp-web

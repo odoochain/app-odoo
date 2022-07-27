@@ -65,7 +65,8 @@
         <!--测试环境，from oca/web-->
         <record id="app_ribbon_name" model="ir.config_parameter">
             <field name="key">app_ribbon_name</field>
-            <field name="value"><![CDATA[Odoochain Test<br/>({db_name})]]></field>
+            <field name="value">False</field>
+<!--            <field name="value"><![CDATA[Odoochain Test<br/>({db_name})]]></field>-->
         </record>
         <!-- Add ribbon color configuration parameter -->
         <record id="app_ribbon_color" model="ir.config_parameter">

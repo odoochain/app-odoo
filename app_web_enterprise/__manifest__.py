@@ -43,6 +43,7 @@
     'price': 68.00,
     'currency': 'EUR',
     'depends': [
+        'base_setup',
         'web_enterprise',
         'web_mobile'
     ],

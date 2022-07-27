@@ -5,12 +5,14 @@
             <attribute name="t-att-class" value=""/>
         </xpath>
     </t>
-
-    <t t-extend="HomeMenu.Content">
-        <t t-jquery=".o_home_menu_footer" t-operation="inner">
-            <img src='/web/binary/company_logo' alt="Logo"/>
-        </t>
+    <t t-jquery="#license" t-operation="replace">
+        <a id="license" target="_blank" href="https://github.com/odoo/enterprise/blob/13.0/LICENSE" style="text-decoration: underline;">OdooChain Enterprise Edition License V1.0</a>
     </t>
+<!--    <t t-extend="HomeMenu">-->
+<!--        <t t-jquery=".o_home_menu_footer" t-operation="inner">-->
+<!--            <img src='/web/binary/company_logo' alt="Logo"/>-->
+<!--        </t>-->
+<!--    </t>-->
 
     <t t-extend="Menu.sections">
         <t t-jquery=".dropdown-toggle" t-operation="attributes">
