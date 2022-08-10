@@ -313,6 +313,8 @@ class ResConfigSettings(models.TransientModel):
             'account.move.line',
             'hr.expense.sheet',
             'account.move',
+            'account.reconcile.model.template',
+            'account.reconcile.model',
         ]
         res = self.remove_app_data(to_removes, [])
 
@@ -499,6 +501,8 @@ class ResConfigSettings(models.TransientModel):
             'mail.message',
             'mail.followers',
             'mail.activity',
+            'mail.tracking.value',
+            'bus.bus',
         ]
         seqs = []
         return self.remove_app_data(to_removes, seqs)

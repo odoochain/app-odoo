@@ -417,6 +417,11 @@ msgid "System Name"
 msgstr "系统名称"
 
 #. module: app_odoo_customize
+#: model:ir.ui.menu,name:app_odoo_customize.menu_ir_config_list
+msgid "System Parameters"
+msgstr "系统参数"
+
+#. module: app_odoo_customize
 #: model_terms:ir.ui.view,arch_db:app_odoo_customize.app_edit_menu_access_search
 msgid "Top Menu"
 msgstr "顶级菜单"
