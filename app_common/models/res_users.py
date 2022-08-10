@@ -7,4 +7,4 @@ from odoo import api, fields, models, tools,  _
 class ResUsers(models.Model):
     _inherit = 'res.users'
 
-    login = fields.Char(index=True)
+    # login = fields.Char(index=True)

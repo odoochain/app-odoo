@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templates id="template" xml:space="preserve">
         <!--改search中英文-->
-    <t t-extend="SearchPanel.Category">
+    <t t-extend="web.SearchPanel.Category">
         <t t-jquery="div.alert" t-operation="replace">
             <div t-if="category.limitAttained" class="alert alert-warning">
                 <span>性能原因，只支持 200 条记录的显示</span>

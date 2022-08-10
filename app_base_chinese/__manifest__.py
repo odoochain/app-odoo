@@ -58,6 +58,7 @@
         'account',
         'sale',
         'stock',
+        'web',
     ],
     'images': ['static/description/banner.jpg'],
     'data': [
