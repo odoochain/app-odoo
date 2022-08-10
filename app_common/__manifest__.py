@@ -50,6 +50,7 @@
         # 'security/ir.model.access.csv',
         # 'data/.xml',
         'views/ir_cron_views.xml',
+        'views/webclient_templates.xml',
         # 'report/.xml',
     ],
     'qweb': [
