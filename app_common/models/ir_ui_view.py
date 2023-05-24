@@ -8,8 +8,11 @@ from odoo.tools.safe_eval import safe_eval
 
 from lxml import etree
 import logging
+
 _logger = logging.getLogger(__name__)
 
+
+# 重载relaxng
 def app_relaxng(view_type):
     """ Return a validator for the given view type, or None. """
     if view_type not in _relaxng_cache:
@@ -27,7 +30,9 @@ def app_relaxng(view_type):
                 _relaxng_cache[view_type] = None
     return _relaxng_cache[view_type]
 
+
 view_validation.relaxng = app_relaxng
+
 
 class View(models.Model):
     _inherit = 'ir.ui.view'
