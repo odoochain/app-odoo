@@ -142,10 +142,10 @@ GPT-3	A set of models that can understand and generate natural language
         res_pre = self.get_ai_pre(data, author_id, answer_id, param)
         if res_pre:
             # 有错误内容，则返回上级内容及 is_ai为假
-            return res_pre, False
+            return res_pre, {}, False
         if not hasattr(self, 'get_%s' % self.provider):
             res = _('No robot provider found')
-            return res, False
+            return res, {}, False
         
         res = getattr(self, 'get_%s' % self.provider)(data, author_id, answer_id, param)
         # 后置勾子，返回处理后的内容
@@ -155,7 +155,8 @@ GPT-3	A set of models that can understand and generate natural language
     def get_ai_post(self, res, author_id=False, answer_id=False, param={}):
         if res and author_id and isinstance(res, openai.openai_object.OpenAIObject) or isinstance(res, list) or isinstance(res, dict):
             # 返回是个对象，那么就是ai
-            if isinstance(res, dict):
+            # if isinstance(res, dict):
+            if self.provider == 'openai':
                 # openai 格式处理
                 usage = res['usage']
                 content = res['choices'][0]['message']['content']

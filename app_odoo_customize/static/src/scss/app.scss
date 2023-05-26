@@ -17,6 +17,74 @@
     content: '/';
   }
 }
+// navbar在下方的特殊处理
+.o_web_client.navbar_pos_bottom {
+
+  @media (max-width: 768px) {
+    --o-navbar-height: 60px;
+  }
+  flex-direction: column-reverse!important;
+  .o_navbar {
+    display: block;
+
+    .o_main_navbar {
+      @media (max-width: 768px) {
+        --o-navbar-height: 60px;
+        padding: 0 40px;
+      }
+      button.o_mobile_menu_toggle, .o_menu_systray .o_debug_manager .dropdown-toggle  {
+        font-size: 1.5em;
+      }
+    }
+  }
+  //message
+  .o_MessagingMenu_dropdownMenu:not(.o-isDeviceSmall) {
+    bottom: var(--o-navbar-height) ;
+    top: auto;
+  }
+  .o_MessagingMenu_dropdownMenu.o-isDeviceSmall {
+    bottom: var(--o-navbar-height)+6!important; ;
+    height: calc(100% - var(--o-navbar-height));
+    top: 0;
+  }
+  //Activity
+  .o_ActivityMenuView_dropdownMenu  {
+    bottom: var(--o-navbar-height);
+    top: auto;
+  }
+  //homeMenu
+  .o_home_menu {
+    .container, .o_container_small, .container-fluid, .container-xxl, .container-xl, .container-lg, .container-md, .container-sm  {
+      //bottom: 60px;
+    }
+  }
+
+  //userMenu
+  .o_burger_menu  {
+    width: 80%;
+    .o_burger_menu_topbar {
+      min-height: var(--o-navbar-height);
+    }
+    &.flex-column  {
+      flex-direction: column-reverse!important;
+    }
+    .oi:before, .fa:before, .dropdown-toggle  {
+      font-size: 1.5em;
+    }
+  }
+
+  //  toggle处理
+  .dropdown .dropdown-toggle::after {
+    display: inline-block;
+    margin-left: 3.4px;
+    vertical-align: 3.4px;
+    content: "";
+    border-top: 0;
+    border-right: 4px solid transparent;
+    border-bottom: 4px solid;
+    border-left: 4px solid transparent;
+  }
+}
 // Colors replace to ent
 //$o-community-color: #875A7B;
 
