@@ -55,7 +55,7 @@
     'pre_init_hook': 'pre_init_hook',
     'post_init_hook': 'post_init_hook',
     'depends': [
-        'app_base',
+        # 'app_base',
         'base_address_extended',
         'account',
         'sales_team',
