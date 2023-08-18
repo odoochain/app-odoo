@@ -8,11 +8,12 @@
 # Copyright (C) 2018-11  欧度智能 https://www.odooai.cn
 
 {
-    'name': '2023最新中国企业会计表.Latest Chinese Accounting for odoo16',
+    'name': '2023最新中国企业会计科目表.Latest Chinese Accounting for odoo16',
     'version': '16.23.03.01',
     'author': 'odooai.cn',
     'category': 'Accounting/Localizations/Account Charts',
     'website': 'https://www.odooai.cn',
+    'live_test_url': 'https://demo.odooapp.cn',
     'license': 'LGPL-3',
     'sequence': 12,
     'summary': """    

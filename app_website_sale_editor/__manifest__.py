@@ -6,11 +6,17 @@
 # resource of odooai
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
-# Odoo12在线用户手册（长期更新）
-# https://www.odooai.cn/documentation/user/12.0/zh_CN/index.html
+# Odoo16在线用户手册（长期更新）
+# https://www.odooai.cn/documentation/16.0/zh_CN/index.html
 
-# Odoo12在线开发者手册（长期更新）
-# https://www.odooai.cn/documentation/12.0/index.html
+# Odoo16在线开发者手册（长期更新）
+# https://www.odooai.cn/documentation/16.0/zh_CN/developer.html
+
+# Odoo13在线用户手册（长期更新）
+# https://www.odooai.cn/documentation/user/13.0/zh_CN/index.html
+
+# Odoo13在线开发者手册（长期更新）
+# https://www.odooai.cn/documentation/13.0/index.html
 
 # Odoo10在线中文用户手册（长期更新）
 # https://www.odooai.cn/documentation/user/10.0/zh_CN/index.html
@@ -33,10 +39,11 @@
 
 {
     'name': "Website Product Editor in Backend",
-    'version': '16.23.04.11',
+    'version': '16.23.08.03',
     'author': 'odooai.cn',
     'category': 'Base',
     'website': 'https://www.odooai.cn',
+    'live_test_url': 'https://demo.odooapp.cn',
     'license': 'LGPL-3',
     'sequence': 2,
     'price': 0.00,
@@ -64,6 +71,7 @@
     ''',
     'data': [
         'views/product_template_views.xml',
+        'views/product_public_category_views.xml',
         # 'report/.xml',
     ],
     'demo': [],

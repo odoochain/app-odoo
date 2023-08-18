@@ -17,10 +17,11 @@
 
 {
     'name': "App sale order browse by partner and channel",
-    'version': '16.22.12.06',
+    'version': '16.23.12.06',
     'author': 'odooai.cn',
     'category': 'Base',
     'website': 'https://www.odooai.cn',
+    'live_test_url': 'https://demo.odooapp.cn',
     'license': 'LGPL-3',
     'sequence': 2,
     'summary': """

@@ -21,6 +21,7 @@
     'author': 'odooai.cn',
     'category': 'Base',
     'website': 'https://www.odooai.cn',
+    'live_test_url': 'https://demo.odooapp.cn',
     'license': 'LGPL-3',
     'sequence': 2,
     'summary': """
@@ -41,7 +42,7 @@
     ],
     'images': ['static/description/banner.gif'],
     'data': [
-        'views/product_views.xml',
+        'views/product_template_views.xml',
         'views/product_category_views.xml',
     ],
     'demo': [

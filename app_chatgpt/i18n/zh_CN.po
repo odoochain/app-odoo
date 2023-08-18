@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0+e-20230424\n"
+"Project-Id-Version: Odoo Server 16.0+e-20230721\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-25 08:32+0000\n"
-"PO-Revision-Date: 2023-04-25 08:32+0000\n"
+"POT-Creation-Date: 2023-07-29 10:11+0000\n"
+"PO-Revision-Date: 2023-07-29 10:11+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -594,11 +594,12 @@ msgstr "上下文连接超时(秒)"
 
 #. module: app_chatgpt
 #: model_terms:ir.ui.view,arch_db:app_chatgpt.is_res_config_settings_view
-msgid "Ai Center(Chatgpt)"
-msgstr "Ai服务中心(Chatgpt)"
+msgid "Ai Center Setup"
+msgstr "Ai智能服务中心设置"
 
 #. module: app_chatgpt
 #: model:ir.model.fields,field_description:app_chatgpt.field_res_partner_ai_use__ai_user_id
+#: model_terms:ir.ui.view,arch_db:app_chatgpt.app_view_users_search
 msgid "Ai User"
 msgstr "Ai用户"
 
@@ -615,7 +616,7 @@ msgstr "对话权限"
 #. module: app_chatgpt
 #: model:ir.model.fields,field_description:app_chatgpt.field_res_users__gpt_wl_partners
 msgid "Allowed Partners"
-msgstr ""
+msgstr "允许的用户"
 
 #. module: app_chatgpt
 #. odoo-javascript
@@ -853,6 +854,11 @@ msgid "Chatgpt 4"
 msgstr ""
 
 #. module: app_chatgpt
+#: model:ir.model.fields.selection,name:app_chatgpt.selection__ai_robot__ai_model__gpt-4-32k
+msgid "Chatgpt 4 32k"
+msgstr ""
+
+#. module: app_chatgpt
 #. odoo-javascript
 #: code:addons/app_chatgpt/static/src/models_data/emoji_data.js:0
 #: code:addons/app_chatgpt/static/src/models_data/emoji_data.js:0
@@ -1000,7 +1006,7 @@ msgstr ""
 #. module: app_chatgpt
 #: model:ir.model,name:app_chatgpt.model_mail_thread
 msgid "Email Thread"
-msgstr "EMail线程"
+msgstr "邮件会话"
 
 #. module: app_chatgpt
 #: model:ir.model.fields,field_description:app_chatgpt.field_ai_robot__endpoint
@@ -1150,7 +1156,7 @@ msgstr ""
 #. module: app_chatgpt
 #: model:ir.model,name:app_chatgpt.model_ai_robot
 msgid "Gpt Robot"
-msgstr ""
+msgstr "GPT机器人"
 
 #. module: app_chatgpt
 #. odoo-javascript
@@ -1549,6 +1555,16 @@ msgid "Max Number of Call"
 msgstr "提问次数限制"
 
 #. module: app_chatgpt
+#: model:ir.model.fields,field_description:app_chatgpt.field_ai_robot__max_send_char
+msgid "Max Send Char"
+msgstr ""
+
+#. module: app_chatgpt
+#: model:ir.model.fields,help:app_chatgpt.field_ai_robot__max_send_char
+msgid "Max Send Prompt Length"
+msgstr ""
+
+#. module: app_chatgpt
 #: model:ir.model.fields,field_description:app_chatgpt.field_ai_robot__max_tokens
 msgid "Max response"
 msgstr ""
@@ -1677,9 +1693,15 @@ msgstr ""
 #. module: app_chatgpt
 #. odoo-python
 #: code:addons/app_chatgpt/models/ai_robot.py:0
+#: code:addons/app_chatgpt/models/ai_robot.py:0
 #, python-format
 msgid "No robot provider found"
 msgstr "没有设置Ai接口供应方"
+
+#. module: app_chatgpt
+#: model_terms:ir.ui.view,arch_db:app_chatgpt.app_view_users_search
+msgid "Not Ai"
+msgstr ""
 
 #. module: app_chatgpt
 #: model:ir.model.fields,field_description:app_chatgpt.field_res_partner_ai_use__used_number
@@ -1869,6 +1891,7 @@ msgstr ""
 #. odoo-python
 #: code:addons/app_chatgpt/models/ai_robot.py:0
 #: code:addons/app_chatgpt/models/ai_robot.py:0
+#: code:addons/app_chatgpt/models/mail_channel.py:0
 #: code:addons/app_chatgpt/models/mail_channel.py:0
 #, python-format
 msgid "Response Timeout, please speak again."
@@ -2157,12 +2180,12 @@ msgstr ""
 #. module: app_chatgpt
 #: model:ir.model.fields,field_description:app_chatgpt.field_ai_robot__ai_timeout
 msgid "Timeout(seconds)"
-msgstr ""
+msgstr "超时(秒)"
 
 #. module: app_chatgpt
 #: model_terms:ir.ui.view,arch_db:app_chatgpt.is_res_config_settings_view
 msgid "Timout then disconnect(s)"
-msgstr ""
+msgstr "超时设定(秒)"
 
 #. module: app_chatgpt
 #. odoo-javascript
@@ -27416,6 +27439,14 @@ msgid "ココ"
 msgstr ""
 
 #. module: app_chatgpt
+#. odoo-python
+#: code:addons/app_chatgpt/models/mail_channel.py:0
+#: code:addons/app_chatgpt/models/mail_channel.py:0
+#, python-format
+msgid "您所发送的提示词已超长。"
+msgstr ""
+
+#. module: app_chatgpt
 #. odoo-javascript
 #: code:addons/app_chatgpt/static/src/components/message/message.xml:0
 #, python-format
@@ -27424,6 +27455,7 @@ msgstr ""
 
 #. module: app_chatgpt
 #. odoo-python
+#: code:addons/app_chatgpt/models/ai_robot.py:0
 #: code:addons/app_chatgpt/models/mail_channel.py:0
 #, python-format
 msgid "此Ai暂时未开放，请联系管理员。"
@@ -27437,6 +27469,7 @@ msgstr ""
 #. module: app_chatgpt
 #. odoo-python
 #: code:addons/app_chatgpt/models/ai_robot.py:0
+#: code:addons/app_chatgpt/models/mail_channel.py:0
 #: code:addons/app_chatgpt/models/mail_channel.py:0
 #, python-format
 msgid "温馨提示：您发送的内容含有敏感词，请修改内容后再向我发送。"

@@ -18,15 +18,18 @@ class AiRobot(models.Model):
     name = fields.Char(string='Name', translate=True, required=True)
     provider = fields.Selection(string="AI Provider", selection=[('openai', 'OpenAI'), ('azure', 'Azure')], required=True, default='openai')
     ai_model = fields.Selection(string="AI Model", selection=[
+        ('gpt-3.5-turbo-0613', 'gpt-3.5-turbo-0613(Default and Latest)'),
+        ('gpt-3.5-turbo-16k-0613', 'gpt-3.5-turbo-16k-0613(Big text)'),
         ('gpt-4', 'Chatgpt 4'),
+        ('gpt-4-32k', 'Chatgpt 4 32k'),
         ('gpt-3.5-turbo', 'Chatgpt 3.5 Turbo'),
         ('gpt-3.5-turbo-0301', 'Chatgpt 3.5 Turbo on 20230301'),
         ('text-davinci-003', 'Chatgpt 3 Davinci'),
         ('code-davinci-002', 'Chatgpt 2 Code Optimized'),
         ('text-davinci-002', 'Chatgpt 2 Davinci'),
         ('dall-e2', 'Dall-E Image'),
-    ], required=True, default='gpt-3.5-turbo',
-                             help="""
+    ], required=True, default='gpt-3.5-turbo-0613',
+                                help="""
 GPT-4: Can understand Image, generate natural language or code.
 GPT-3.5: A set of models that improve on GPT-3 and can understand as well as generate natural language or code
 DALL·E: A model that can generate and edit images given a natural language prompt
@@ -151,6 +154,28 @@ GPT-3	A set of models that can understand and generate natural language
         # 后置勾子，返回处理后的内容
         res_post, usage, is_ai = self.get_ai_post(res, author_id, answer_id,  param)
         return res_post, usage, is_ai
+
+    def get_ai_origin(self, data, author_id=False, answer_id=False, param={}):
+        # 通用方法
+        # author_id: 请求的 partner_id 对象
+        # answer_id: 回答的 partner_id 对象
+        # param，dict 形式的参数
+        # 调整输出为2个参数：res_post详细内容，is_ai是否ai的响应
+
+        self.ensure_one()
+        # 前置勾子，一般返回 False，有问题返回响应内容，用于处理敏感词等
+        res_pre = self.get_ai_pre(data, author_id, answer_id, param)
+        if res_pre:
+            # 有错误内容，则返回上级内容及 is_ai为假
+            return res_pre, {}, False
+        if not hasattr(self, 'get_%s' % self.provider):
+            res = _('No robot provider found')
+            return res, {}, False
+
+        res = getattr(self, 'get_%s' % self.provider)(data, author_id, answer_id, param)
+        # 后置勾子，返回处理后的内容
+        res_post, usage, is_ai = self.get_ai_post(res, author_id, answer_id, param)
+        return res
     
     def get_ai_post(self, res, author_id=False, answer_id=False, param={}):
         if res and author_id and isinstance(res, openai.openai_object.OpenAIObject) or isinstance(res, list) or isinstance(res, dict):
@@ -161,10 +186,13 @@ GPT-3	A set of models that can understand and generate natural language
                 usage = res['usage']
                 content = res['choices'][0]['message']['content']
                 # _logger.warning('===========Ai响应:%s' % content)
-            else:
+            elif self.provider == 'azure':
                 # azure 格式
                 usage = json.loads(json.dumps(res['usage']))
                 content = json.loads(json.dumps(res['choices'][0]['message']['content']))
+            else:
+                usage = False
+                content = res
             data = content.replace(' .', '.').strip()
             answer_user = answer_id.mapped('user_ids')[:1]
             if usage:
