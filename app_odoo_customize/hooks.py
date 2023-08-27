@@ -21,7 +21,7 @@ from odoo import api, SUPERUSER_ID, _
 def pre_init_hook(cr):
     try:
         # 更新企业版指向
-        sql = "UPDATE ir_module_module SET website = '%s' WHERE license like '%s' and website <> ''" % ('https://www.odooai.cn', 'OEEL%')
+        sql = "UPDATE ir_module_module SET website = '%s' WHERE license like '%s' and website <> ''" % ('https://www.ocoochain.cn', 'OEEL%')
         cr.execute(sql)
         cr.commit()
     except Exception as e:
