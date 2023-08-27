@@ -479,8 +479,8 @@ msgstr "您确认要删除指定数据？"
 #: model_terms:ir.ui.view,arch_db:app_odoo_customize.replace_login
 msgid ""
 "Powered by\n"
-"                <span>odooai.cn</span>"
-msgstr "技术支持 <span>odooai.cn</span>"
+"                <span>odoochain.cn</span>"
+msgstr "技术支持 <span>odoochain.cn</span>"
 
 #. module: app_odoo_customize
 #. odoo-javascript
@@ -721,8 +721,8 @@ msgstr "菜单项具体操作设置"
 #: model_terms:ir.ui.view,arch_db:app_odoo_customize.view_app_theme_config_settings
 msgid ""
 "Visit our website for more apps and Support.\n"
-"\t\t\t\t\t\t\t\t\t\t\t\t\thttps://www.odooai.cn"
-msgstr "请访问我们的网站获取更多支持. http://www.odooai.cn"
+"\t\t\t\t\t\t\t\t\t\t\t\t\thttps://www.odoochain.cn"
+msgstr "请访问我们的网站获取更多支持. http://www.odoochain.cn"
 
 #. module: app_odoo_customize
 #: model:ir.model,name:app_odoo_customize.model_web_environment_ribbon_backend
@@ -768,5 +768,5 @@ msgstr "odooAi欧度智能"
 #. odoo-javascript
 #: code:addons/app_odoo_customize/static/src/xml/res_config_edition.xml:0
 #, python-format
-msgid "odooai.cn"
-msgstr "odooai.cn"
+msgid "odoochain.cn"
+msgstr "odoochain.cn"
