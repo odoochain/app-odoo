@@ -8,9 +8,10 @@
 
 {
     'name': "App web enterprise enhance,企业版界面增强",
-    'version': '14.21.03.03',
+    'version': '14.0.0.3',
+    # 'version': '14.21.03.03',
     'author': 'odooChain.cn',
-    'category': 'Base',
+    'category': 'Themes/Backend',
     'website': 'https://www.odoochain.cn',
     'license': 'LGPL-3',
     'sequence': 2,
