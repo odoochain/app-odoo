@@ -17271,7 +17271,7 @@ msgstr ""
 
 #. module: app_chatgpt
 #: model_terms:ir.ui.view,arch_db:app_chatgpt.is_res_config_settings_view
-msgid "odooAi.cn"
+msgid "odoochain.cn"
 msgstr ""
 
 #. module: app_chatgpt

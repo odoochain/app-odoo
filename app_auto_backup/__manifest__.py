@@ -23,8 +23,8 @@
         4) If you want to write backups to a remote location you should fill in the SFTP details.
     """,
 
-    'author': 'odooai.cn',
-    'website': "http://www.odooai.cn",
+    'author': 'odoochain.cn',
+    'website': "http://www.odoochain.cn",
     'category': 'Extra tools',
     'installable': True,
     'license': 'LGPL-3',

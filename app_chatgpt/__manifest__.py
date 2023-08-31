@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 # Created on 2023-02-016
-# author: 欧度智能，https://www.odooai.cn
+# author: 欧度智能，https://www.odoochain.cn
 # email: 300883@qq.com
 # resource of odooai
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
@@ -11,11 +11,11 @@
 {
     'name': 'ChatGPT4,Google Bard, AiGC Center.Ai服务中心，聚合全网Ai',
     'version': '16.23.08.15',
-    'author': 'odooai.cn',
-    'company': 'odooai.cn',
-    'maintainer': 'odooai.cn',
+    'author': 'odoochain.cn',
+    'company': 'odoochain.cn',
+    'maintainer': 'odoochain.cn',
     'category': 'Website/Website',
-    'website': 'https://www.odooai.cn',
+    'website': 'https://www.odoochain.cn',
     'live_test_url': 'https://demo.odooapp.cn',
     'license': 'LGPL-3',
     'sequence': 10,

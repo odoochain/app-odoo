@@ -12,7 +12,7 @@ class ResConfigSettings(models.TransientModel):
     _inherit = 'res.config.settings'
 
     app_system_name = fields.Char('System Name', help="Setup System Name,which replace Odoo",
-                                  default='odooAi', config_parameter='app_system_name')
+                                  default='odooChain', config_parameter='app_system_name')
     app_show_lang = fields.Boolean('Show Quick Language Switcher',
                                    help="When enable,User can quick switch language in user menu",
                                    config_parameter='app_show_lang')
@@ -65,7 +65,7 @@ class ResConfigSettings(models.TransientModel):
     module_app_chatgpt = fields.Boolean("Ai Center", help='Use Ai to boost you business.')
     
     # 应用帮助文档
-    app_doc_root_url = fields.Char('Help of topic domain', config_parameter='app_doc_root_url', default='https://odooai.cn')
+    app_doc_root_url = fields.Char('Help of topic domain', config_parameter='app_doc_root_url', default='https://odoochain.cn')
 
     def set_module_url(self):
         sql = "UPDATE ir_module_module SET website = '%s' WHERE license like '%s' and website <> ''" % (self.app_enterprise_url, 'OEEL%')
@@ -329,10 +329,10 @@ class ResConfigSettings(models.TransientModel):
             _logger.error('remove data error: %s,%s', 'account_chart: set tax and account_journal', e)
 
         # 增加对 pos的处理
-        if self.env['ir.model']._get('pos.config'):
-            self.env['pos.config'].write({
-                'journal_id': False,
-            })
+        # if self.env['ir.model']._get('pos.config'):
+        #     self.env['pos.config'].write({
+        #         'journal_id': False,
+        #     })
         #     todo: 以下处理参考 res.partner的合并，将所有m2o的都一次处理，不需要次次找模型
         # partner 处理
         try:
@@ -380,9 +380,21 @@ class ResConfigSettings(models.TransientModel):
             pass  # raise Warning(e)
 
         seqs = []
-        self.env.company.write({
-            'chart_template_id': False,
-        })
+
+        for company in self:
+            try:
+                if company.chart_template_id:
+                    self.env.company.write({
+                        'chart_template_id': False,
+                    })
+            except Exception as e:
+                pass  # raise Warning(e)
+
+
+
+        # self.env.company.write({
+        #     'chart_template_id': False,
+        # })
         res = self.remove_app_data(to_removes, seqs)
         return res
 

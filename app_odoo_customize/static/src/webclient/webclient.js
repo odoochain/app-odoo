@@ -19,7 +19,7 @@ patch(WebClient.prototype, "app_odoo_customize.WebClient", {
             document.body.className += ' navbar_pos_bottom';
         }
 
-        const app_system_name = session.app_system_name || 'odooAi';
+        const app_system_name = session.app_system_name || 'odooChain';
         // zopenerp is easy to grep
         this.title.setParts({ zopenerp: app_system_name });
 
