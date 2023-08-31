@@ -4,7 +4,7 @@
 # Created on 2019-04-20
 # author: 欧度智能，http://www.odoochain.cn
 # email: 300883@qq.com
-# resource of odooai
+# resource of odoochain
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 # Odoo12在线用户手册（长期更新）

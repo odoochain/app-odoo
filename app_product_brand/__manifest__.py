@@ -11,7 +11,7 @@
 # Created on 2019-11-12
 # author: 欧度智能，https://www.odoochain.cn
 # email: 300883@qq.com
-# resource of odooai
+# resource of odoochain
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
 # Odoo16在线用户手册（长期更新）

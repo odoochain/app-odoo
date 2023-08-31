@@ -3,7 +3,7 @@
 # Created on 2023-02-016
 # author: 欧度智能，https://www.odoochain.cn
 # email: 300883@qq.com
-# resource of odooai
+# resource of odoochain
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 # Copyright (c) 2020-Present InTechual Solutions. (<https://intechualsolutions.com/>)

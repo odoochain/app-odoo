@@ -3,7 +3,7 @@
 # Created on 2023-02-02
 # author: 欧度智能，https://www.odoochain.cn
 # email: 300883@qq.com
-# resource of odooai
+# resource of odoochain
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
 # Odoo16在线用户手册（长期更新）
@@ -38,7 +38,7 @@
 ##############################################################################
 
 {
-    'name': "odooai Odooapp Common Func",
+    'name': "odoochain Odooapp Common Func",
     'version': '16.23.08.17',
     'author': 'odoochain.cn',
     'category': 'Base',
@@ -50,7 +50,7 @@
     'currency': 'EUR',
     'images': ['static/description/banner.png'],
     'summary': '''
-    Core for common use odooai apps.
+    Core for common use odoochain apps.
     基础核心，必须没有要被依赖字段及视图等，实现auto_install
     ''',
     'description': '''    
