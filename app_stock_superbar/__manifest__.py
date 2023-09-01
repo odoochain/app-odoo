@@ -1,26 +1,26 @@
 # -*- coding: utf-8 -*-
 
 # Created on 2018-08-15
-# author: 欧度智能，https://www.odoochain.cn
+# author: 欧度智能，https://www.odooai.cn
 # email: 300883@qq.com
-# resource of odoochain
+# resource of odooai
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 # Odoo在线中文用户手册（长期更新）
-# https://www.odoochain.cn/documentation/user/10.0/zh_CN/index.html
+# https://www.odooai.cn/documentation/user/10.0/zh_CN/index.html
 
 # Odoo10离线中文用户手册下载
-# https://www.odoochain.cn/odoo10_user_manual_document_offline/
+# https://www.odooai.cn/odoo10_user_manual_document_offline/
 # Odoo10离线开发手册下载-含python教程，jquery参考，Jinja2模板，PostgresSQL参考（odoo开发必备）
-# https://www.odoochain.cn/odoo10_developer_document_offline/
+# https://www.odooai.cn/odoo10_developer_document_offline/
 # description:
 
 {
     'name': "Stock Superbar ztree, parent children tree",
-    'version': '16.22.12.06',
-    'author': 'odoochain.cn',
+    'version': '16.23.08.31',
+    'author': 'odooai.cn',
     'category': 'Base',
-    'website': 'https://www.odoochain.cn',
+    'website': 'https://www.odooai.cn',
     'live_test_url': 'https://demo.odooapp.cn',
     'license': 'LGPL-3',
     'sequence': 2,
@@ -48,8 +48,9 @@
         'views/stock_picking_type_views.xml',
         'views/stock_warehouse_orderpoint_views.xml',
         'views/stock_rule_views.xml',
-        'views/stock_location_route_views.xml',
-        'views/stock_production_lot_views.xml',
+        'views/stock_lot_views.xml',
+        # todo: 以下两个模型调整了
+        # 'views/stock_location_route_views.xml',
     ],
     'demo': [
     ],
