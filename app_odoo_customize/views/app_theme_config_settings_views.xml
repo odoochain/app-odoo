@@ -120,7 +120,12 @@
 									<span>Set to False to hide</span>
 								</div>
 							</div>
+							<label for="app_system_name"/>
+							<div>
+								<field name="app_system_name"/>
+							</div>
 							<label for="app_enterprise_url"/>
+
 							<div>
 								<field name="app_enterprise_url" class="oe_inline"/>
 								<button string="Click to set" type="object" name="set_module_url" class="ml8 oe_highlight"/>

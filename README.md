@@ -330,7 +330,7 @@ odoo enterprise version UI enhance.
 
 3. Alway show search in main menu.
 
-欧度智能，odoochain.cn 的odoo模块。企业版界面增强。
+odoochain.cn 的odoo模块。企业版界面增强。
 
 1. 多级菜单中出现箭头。
 
