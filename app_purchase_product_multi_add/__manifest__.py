@@ -19,7 +19,7 @@
     'name': "Multi Add Purchase Product,采购订单批量加产品",
     'version': '13.21.12.30',
     'author': 'odoochain.cn',
-    'category': 'Base',
+    'category': 'Purchase',
     'website': 'https://www.odoochain.cn',
     'license': 'LGPL-3',
     'sequence': 2,
