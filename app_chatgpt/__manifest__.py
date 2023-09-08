@@ -10,10 +10,10 @@
 
 {
     'name': 'ChatGPT4,Google Bard, AiGC Center.Ai服务中心，聚合全网Ai',
-    'version': '16.23.08.15',
-    'author': 'odoochain.cn',
-    'company': 'odoochain.cn',
-    'maintainer': 'odoochain.cn',
+    'version': '16.23.09.08',
+    'author': 'odooai.cn',
+    'company': 'odooai.cn',
+    'maintainer': 'odooai.cn',
     'category': 'Website/Website',
     'website': 'https://www.odoochain.cn',
     'live_test_url': 'https://demo.odooapp.cn',

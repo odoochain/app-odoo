@@ -57,11 +57,9 @@
             'app_odoo_customize/static/src/js/user_menu.js',
             'app_odoo_customize/static/src/js/ribbon.js',
             'app_odoo_customize/static/src/js/dialog.js',
-            'app_odoo_customize/static/src/js/web_dialog_size.js',
             'app_odoo_customize/static/src/webclient/*.js',
             'app_odoo_customize/static/src/webclient/*.xml',
             'app_odoo_customize/static/src/xml/res_config_edition.xml',
-            'app_odoo_customize/static/src/xml/web_dialog_size.xml',
         ],
     },
     'pre_init_hook': 'pre_init_hook',
@@ -74,7 +72,7 @@
     App Customize Odoo (Change Title,Language,Documentation,Quick Debug)
     ============
     White label odoo.
-    Support odoo 16,15,14, 13, 12, 11, 10, 9.
+    Support odoo 16,15,14,13,12,11,10,9.
     You can config odoo, make it look like your own platform.
     1. Deletes Odoo label in footer
     2. Replaces "Odoo" in Windows title
