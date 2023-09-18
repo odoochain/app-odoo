@@ -124,8 +124,11 @@
 							<div>
 								<field name="app_system_name"/>
 							</div>
+							<label for="py3o_conversion_command"/>
+							<div>
+								<field name="py3o_conversion_command"/>
+							</div>
 							<label for="app_enterprise_url"/>
-
 							<div>
 								<field name="app_enterprise_url" class="oe_inline"/>
 								<button string="Click to set" type="object" name="set_module_url" class="ml8 oe_highlight"/>
