@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
 {
-    'name': 'odoo Tweak,Boost,Customize,Ai All in One. Customize,UI,Boost,Security,Data,Development Enhance',
-    'version': '16.23.08.28',
+    'name': 'odoo Tweak,Ai Employee,Boost,Customize All in One. Customize,UI,Boost,Security,Data,Development Enhance',
+    'version': '16.23.09.17',
     'author': 'odoochain,odooai',
     'category': 'Extra Tools',
     'website': 'https://www.odoochain.cn',
@@ -11,16 +11,15 @@
     'sequence': 2,
     'images': ['static/description/banner.gif'],
     'summary': """
-    1 click Tweak odoo. 45 Functions odoo enhancement. for Customize, UI, Boost, Security, Development.
+    Ai as employee. 1 click Tweak odoo. 48 Functions odoo enhancement. for Customize, UI, Boost, Security, Development.
     Easy reset data, clear data, reset account chart, reset Demo data.
-    For quick debug. Set brand,  Language Switcher. odoo improve all.
+    For quick debug. Set brand,  Language Switcher all in one.
     """,
     'depends': [
         'app_common',
         'base_setup',
         'web',
         'mail',
-        'iap',
         # 'digest',
         # when enterprise
         'web_mobile'
@@ -120,6 +119,7 @@
     44. Check to stop subscribe and follow. This to make odoo speed up.
     45. Add addons path info to module.
     46. Add Help documentation anywhere.  easy get help for any odoo operation or action.
+    47. Add ai robot app integration. Use Ai as your employee.
 
     This module can help to white label the Odoo.
     Also helpful for training and support for your odoo end-user.
