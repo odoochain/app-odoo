@@ -331,8 +331,12 @@ class ResConfigSettings(models.TransientModel):
             self._cr.commit()
         except Exception as e:
             _logger.error('remove data error: %s,%s', 'account_chart: set tax and account_journal', e)
-
         # 增加对 pos的处理
+        if self.env['ir.model']._get('pos.config'):
+            self.env['pos.config'].write({
+                'journal_id': False,
+            })
+
         # if self.env['ir.model']._get('pos.config'):
         #     self.env['pos.config'].write({
         #         'journal_id': False,
