@@ -68,7 +68,8 @@
     'assets': {
         # 企业版变色，注意这个是变量定义，要before
         'web._assets_primary_variables': [
-            ('before', 'web_enterprise/static/src/scss/primary_variables.scss', 'app_web_enterprise/static/src/scss/primary_variables.scss'),
+            ('before', 'web_enterprise/static/src/scss/primary_variables.scss',
+             'app_web_enterprise/static/src/scss/primary_variables.scss'),
         ],
         'web.assets_backend': [
             ('before', 'web/static/src/views/**/*', 'app_web_enterprise/static/src/scss/app_style_before.scss'),
@@ -81,11 +82,13 @@
         # 这里是改样式，要 after处理
         'web.assets_common': [
             ('after', 'web/static/lib/jquery.ui/jquery-ui.css', 'app_web_enterprise/static/lib/jquery.ui/jquery-ui.css'),
-            ('after', 'web_enterprise/static/src/webclient/home_menu/home_menu_background.scss', 'app_web_enterprise/static/src/scss/home_menu_background.scss'),
+            ('after', 'web_enterprise/static/src/webclient/home_menu/home_menu_background.scss',
+             'app_web_enterprise/static/src/scss/home_menu_background.scss'),
         ],
         'web.assets_frontend': [
             # ('after', 'web/static/src/core/**/*', 'app_web_enterprise/static/src/xml/base.xml'),
-            ('after', 'web_enterprise/static/src/webclient/home_menu/home_menu_background.scss', 'app_web_enterprise/static/src/scss/home_menu_background.scss'),
+            ('after', 'web_enterprise/static/src/webclient/home_menu/home_menu_background.scss',
+             'app_web_enterprise/static/src/scss/home_menu_background.scss'),
             'app_web_enterprise/static/src/scss/app_style_website.scss',
         ],
     },
@@ -95,7 +98,6 @@
     # 'test': [
     # ],
 
-    'images': ['static/description/app_web_enterprise_03.jpg'],
     'post_load': None,
     'post_init_hook': None,
     'installable': True,
