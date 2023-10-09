@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 {
-    'name': 'odoo Tweak,Ai Employee,Boost,Customize All in One. Customize,UI,Boost,Security,Data,Development Enhance',
+    'name': 'odoo17 Tweak,Ai Employee,Boost,Customize All in One. Customize,UI,Boost,Security,Data',
     'version': '16.23.09.17',
     'author': 'odoochain,odooai',
     'category': 'Extra Tools',
@@ -11,9 +11,9 @@
     'sequence': 2,
     'images': ['static/description/banner.gif'],
     'summary': """
-    Ai as employee. 1 click Tweak odoo. 48 Functions odoo enhancement. for Customize, UI, Boost, Security, Development.
+    Ai as employee.1 click Tweak odoo. 48 Functions odoo enhancement. for Customize,UI,Boost Security,Development.
     Easy reset data, clear data, reset account chart, reset Demo data.
-    For quick debug. Set brand,  Language Switcher all in one.
+    For quick debug. Set brand,Language Switcher all in one.
     """,
     'depends': [
         'app_common',
@@ -67,12 +67,14 @@
     'application': True,
     'auto_install': False,
     'description': """
-
     App Customize Odoo (Change Title,Language,Documentation,Quick Debug)
     ============
-    White label odoo.
-    Support odoo 16,15,14,13,12,11,10,9.
+    For Odoo17. Please get from the follow github. Done for 85%.
+    https://github.com/guohuadeng/app-odoo/tree/17.0
+    White label odoo. UI and Development Enhance.
+    Support odoo 17,16,15,14,13,12,11,10,9.
     You can config odoo, make it look like your own platform.
+    ============
     1. Deletes Odoo label in footer
     2. Replaces "Odoo" in Windows title
     3. Customize Documentation, Support, About links and title in usermenu
@@ -126,7 +128,8 @@
     The user can get the help document just by one click.
     ## 在符合odoo开源协议的前提下，自定义你的odoo系统
     可完全自行设置下列选项，将 odoo 整合进自有软件产品
-    支持odoo 16,15,14,13,12, 11, 10, 9 版本，社区版企业版通用
+    支持odoo 17,16,15,14,13,12, 11, 10, 9 版本，社区版企业版通用
+    ============
     1. 删除菜单导航页脚的 Odoo 标签
     2. 将弹出窗口中 "Odoo" 设置为自定义名称
     3. 自定义用户菜单中的 Documentation, Support, About 的链接
