@@ -23,7 +23,7 @@
   //list 改标头背景，o2m这里分开写
   :not(.o_field_x2many_list) > & thead, tfoot {
     tr {
-      background-color: $o-gray-100;
+      background-color: #f8f9fa;
     }
   }
   .o_field_x2many_list > & thead, tfoot {
