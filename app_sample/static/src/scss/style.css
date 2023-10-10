@@ -1,0 +1,15 @@
+.o_web_client .o_burger_menu {
+  width: 80%;
+}
+.o_web_client .o_burger_menu .o_burger_menu_topbar {
+  height: var(--o-navbar-height);
+}
+.o_web_client .o_burger_menu.flex-column {
+  flex-direction: column-reverse !important;
+}
+.o_web_client .o_burger_menu .oi:before, .o_web_client .o_burger_menu .fa:before, .o_web_client .o_burger_menu .dropdown-toggle {
+  font-size: 2em;
+  line-height: var(--o-navbar-height);
+}
+
+/*# sourceMappingURL=style.css.map */
