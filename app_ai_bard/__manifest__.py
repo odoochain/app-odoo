@@ -1,19 +1,19 @@
 # -*- coding: utf-8 -*-
 
 # Created on 2023-02-016
-# author: 欧度智能，https://www.odoochain.cn
+# author: 欧度智能，https://www.odooai.cn
 # email: 300883@qq.com
-# resource of odoochain
+# resource of odooai
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 {
     'name': 'Google Bard Ai for odoo ai center, 谷歌Ai支持',
-    'version': '16.23.07.29',
-    'author': 'odoochain.cn',
-    'company': 'odoochain.cn',
-    'maintainer': 'odoochain.cn',
+    'version': '16.23.10.11',
+    'author': 'odooai.cn',
+    'company': 'odooai.cn',
+    'maintainer': 'odooai.cn',
     'category': 'Website/Website',
-    'website': 'https://www.odoochain.cn',
+    'website': 'https://www.odooai.cn',
     'live_test_url': 'https://demo.odooapp.cn',
     'license': 'LGPL-3',
     'sequence': 10,
@@ -43,7 +43,7 @@
     13. Full Open Source.
     ''',
     'depends': [
-        'app_chatgpt',
+        'app_ai',
     ],
     'data': [
         'data/ai_robot_data.xml',
