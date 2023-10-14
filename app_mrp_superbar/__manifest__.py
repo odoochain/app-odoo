@@ -54,7 +54,7 @@
     'css': [
     ],
     'qweb': [
-        'static/src/xml/*.xml',
+        # 'static/src/xml/*.xml',
     ],
     'js': [
     ],
