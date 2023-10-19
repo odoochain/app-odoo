@@ -8,7 +8,7 @@ class BlogBlog(models.Model):
     _inherit = 'blog.blog'
     _order = 'sequence, name'
 
-    seo_name = fields.Char(tracking=True)
+    seo_name = fields.Char("Seo name", translate=True, prefetch=True)
     
     # 排序
     sequence = fields.Integer(string='Sequence', default=20, index=True, help="Determine the display order")
