@@ -13,20 +13,15 @@ class IrMailServer(models.Model):
 
     # 改默认发邮件逻辑
     @api.model
-    def send_email(self, message, mail_server_id=None, smtp_server=None, smtp_port=None,
-                   smtp_user=None, smtp_password=None, smtp_encryption=None, smtp_debug=False,
-                   smtp_session=None):
+    def send_email(self, message, mail_server_id=None, smtp_server=None,  *args, **kwargs):
 
         email_to = message['To']
 
         # 忽略掉无效email，避免被ban
-        if email_to.find('no-reply@odoochain.cn') != -1 or email_to.find('postmaster-odoo@odoochain.cn') != -1:
+        if email_to.find('no-reply@lawia.org.cn') != -1 or email_to.find('postmaster-odoo@lawia.org.cn') != -1:
             pass
-        elif email_to.find('example.com') != -1 or email_to.find('@odoochain.cn') != -1 or email_to.find(
-                '@lawia.org.cn') != -1:
+        elif email_to.find('@example.com') != -1:
             _logger.error(_("=================Email to ignore: %s") % email_to)
             raise AssertionError(_("Email to ignore: %s") % email_to)
 
-        return super(IrMailServer, self).send_email(message, mail_server_id, smtp_server, smtp_port,
-                                                    smtp_user, smtp_password, smtp_encryption, smtp_debug,
-                                                    smtp_session)
+        return super(IrMailServer, self).send_email(message, mail_server_id, smtp_server, *args, **kwargs)
