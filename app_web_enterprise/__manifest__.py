@@ -61,7 +61,9 @@
         'web_enterprise',
         # 'web_mobile'
     ],
-    'images': ['static/description/banner.png'],
+    'images': ['static/description/banner.png',
+               'static/description/app_web_enterprise_03.jpg',
+               ],
     'data': [
         'views/webclient_templates.xml',
     ],
@@ -95,7 +97,7 @@
     # 'test': [
     # ],
 
-    'images': ['static/description/app_web_enterprise_03.jpg'],
+    # 'images': ['static/description/app_web_enterprise_03.jpg'],
     'post_load': None,
     'post_init_hook': None,
     'installable': True,
