@@ -136,6 +136,7 @@ class DbBackup(models.Model):
                 fp = open(file_path, 'wb')
                 self._take_dump(rec.name, fp, 'db.backup', rec.backup_type)
                 fp.close()
+                _logger.info('File Path: %s name %s Backup Finished', file_path, rec.name)
             except Exception as error:
                 _logger.debug(
                     "Couldn't backup database %s. Bad database administrator password for server running at "
