@@ -27,7 +27,7 @@ def app_relaxng(view_type):
                 _relaxng_cache[view_type] = None
     return _relaxng_cache[view_type]
 
-view_validation.relaxng = app_relaxng
+# view_validation.relaxng = app_relaxng
 
 class View(models.Model):
     _inherit = 'ir.ui.view'
@@ -35,7 +35,7 @@ class View(models.Model):
     def __init__(self, env, ids, prefetch_ids):
         # 这里应该是无必要，但为了更安全
         super(View, self).__init__(env, ids, prefetch_ids)
-        view_validation.relaxng = app_relaxng
+        # view_validation.relaxng = app_relaxng
 
     # todo: 有可能需要处理增加的 header等标签
     # 直接重写原生方法
