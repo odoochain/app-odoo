@@ -1,27 +1,27 @@
 # -*- coding: utf-8 -*-
 
 # Created on 2023-02-02
-# author: 欧度智能，https://www.odoochain.cn
+# author: 欧度智能，https://www.odooai.cn
 # email: 300883@qq.com
-# resource of odoochain
+# resource of odooai
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 # Odoo在线中文用户手册（长期更新）
-# https://www.odoochain.cn/documentation/user/10.0/zh_CN/index.html
+# https://www.odooai.cn/documentation/user/10.0/zh_CN/index.html
 
 # Odoo10离线中文用户手册下载
-# https://www.odoochain.cn/odoo10_user_manual_document_offline/
+# https://www.odooai.cn/odoo10_user_manual_document_offline/
 # Odoo10离线开发手册下载-含python教程，jquery参考，Jinja2模板，PostgresSQL参考（odoo开发必备）
-# https://www.odoochain.cn/odoo10_developer_document_offline/
+# https://www.odooai.cn/odoo10_developer_document_offline/
 # description:
 
 
 {
     'name': 'odoo中文版套件之基础,中国会计基础,Chinese Enhance All in One，',
-    'version': '16.23.08.03',
-    'author': 'odoochain.cn',
+    'version': '16.23.11.10',
+    'author': 'odooai.cn',
     'category': 'Base',
-    'website': 'https://www.odoochain.cn',
+    'website': 'https://www.odooai.cn',
     'live_test_url': 'https://demo.odooapp.cn',
     'license': 'LGPL-3',
     'sequence': 2,

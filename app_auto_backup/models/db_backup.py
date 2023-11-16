@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
 
-import os,subprocess
+import os, subprocess
 import datetime
 import time
 import shutil
 import json
 import tempfile
+
+from paramiko.client import SSHClient, AutoAddPolicy
 
 from odoo import models, fields, api, tools, _
 from odoo.exceptions import Warning, AccessDenied
@@ -13,13 +15,6 @@ import odoo
 
 import logging
 _logger = logging.getLogger(__name__)
-
-try:
-    import paramiko
-except ImportError:
-    raise ImportError(
-        'This module needs paramiko to automatically write backups to the FTP through SFTP. '
-        'Please install paramiko on your system. (sudo pip3 install paramiko)')
 
 
 class DbBackup(models.Model):
@@ -92,8 +87,8 @@ class DbBackup(models.Model):
 
             # Connect with external server over SFTP, so we know sure that everything works.
             try:
-                s = paramiko.SSHClient()
-                s.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+                s = SSHClient()
+                s.set_missing_host_key_policy(AutoAddPolicy())
                 s.connect(ip_host, port_host, username_login, password_login, timeout=10)
                 sftp = s.open_sftp()
                 sftp.close()
@@ -157,8 +152,8 @@ class DbBackup(models.Model):
                     _logger.debug('sftp remote path: %s' % path_to_write_to)
 
                     try:
-                        s = paramiko.SSHClient()
-                        s.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+                        s = SSHClient()
+                        s.set_missing_host_key_policy(AutoAddPolicy())
                         s.connect(ip_host, port_host, username_login, password_login, timeout=20)
                         sftp = s.open_sftp()
                     except Exception as error:
