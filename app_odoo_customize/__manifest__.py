@@ -86,7 +86,7 @@
     'post_init_hook': 'post_init_hook',
     'installable': True,
     'application': True,
-    'auto_install': True,
+    'auto_install': False,
     'description': """
     App Customize Odoo (Change Title,Language,Documentation,Quick Debug)
     ============
