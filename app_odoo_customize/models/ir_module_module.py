@@ -20,13 +20,13 @@ class IrModule(models.Model):
     addons_path = fields.Char(string='Addons Path', related='addons_path_id.path', readonly=True)
     license = fields.Char(readonly=True)
 
-    def module_multi_uninstall(self):
-        """ Perform the various steps required to uninstall a module completely
-            including the deletion of all database structures created by the module:
-            tables, columns, constraints, etc.
-        """
-        modules = self.browse(self.env.context.get('active_ids'))
-        [module.button_immediate_uninstall() for module in modules if module not in ['base', 'web']]
+    # def module_multi_uninstall(self):
+    #     """ Perform the various steps required to uninstall a module completely
+    #         including the deletion of all database structures created by the module:
+    #         tables, columns, constraints, etc.
+    #     """
+    #     modules = self.browse(self.env.context.get('active_ids'))
+    #     [module.button_immediate_uninstall() for module in modules if module not in ['base', 'web']]
 
     # 更新翻译，当前语言
     def module_multi_refresh_po(self):
