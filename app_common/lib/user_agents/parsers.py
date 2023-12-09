@@ -1,5 +1,7 @@
 from collections import namedtuple
 
+from pytz import unicode
+
 from ..ua_parser import user_agent_parser
 from .compat import string_types
 

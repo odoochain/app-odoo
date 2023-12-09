@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
 
-import os
+import os, subprocess
 import datetime
 import time
 import shutil
 import json
 import tempfile
+
+from paramiko.client import SSHClient, AutoAddPolicy
 
 from odoo import models, fields, api, tools, _
 from odoo.exceptions import Warning, AccessDenied
@@ -13,13 +15,6 @@ import odoo
 
 import logging
 _logger = logging.getLogger(__name__)
-
-try:
-    import paramiko
-except ImportError:
-    raise ImportError(
-        'This module needs paramiko to automatically write backups to the FTP through SFTP. '
-        'Please install paramiko on your system. (sudo pip3 install paramiko)')
 
 
 class DbBackup(models.Model):
@@ -92,8 +87,8 @@ class DbBackup(models.Model):
 
             # Connect with external server over SFTP, so we know sure that everything works.
             try:
-                s = paramiko.SSHClient()
-                s.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+                s = SSHClient()
+                s.set_missing_host_key_policy(AutoAddPolicy())
                 s.connect(ip_host, port_host, username_login, password_login, timeout=10)
                 sftp = s.open_sftp()
                 sftp.close()
@@ -136,6 +131,7 @@ class DbBackup(models.Model):
                 fp = open(file_path, 'wb')
                 self._take_dump(rec.name, fp, 'db.backup', rec.backup_type)
                 fp.close()
+                _logger.info('File Path: %s name %s Backup Finished', file_path, rec.name)
             except Exception as error:
                 _logger.debug(
                     "Couldn't backup database %s. Bad database administrator password for server running at "
@@ -156,8 +152,8 @@ class DbBackup(models.Model):
                     _logger.debug('sftp remote path: %s' % path_to_write_to)
 
                     try:
-                        s = paramiko.SSHClient()
-                        s.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+                        s = SSHClient()
+                        s.set_missing_host_key_policy(AutoAddPolicy())
                         s.connect(ip_host, port_host, username_login, password_login, timeout=20)
                         sftp = s.open_sftp()
                     except Exception as error:
@@ -295,7 +291,7 @@ class DbBackup(models.Model):
                     with db.cursor() as cr:
                         json.dump(self._dump_db_manifest(cr), fh, indent=4)
                 cmd.insert(-1, '--file=' + os.path.join(dump_dir, 'dump.sql'))
-                odoo.tools.exec_pg_command(*cmd)
+                subprocess.check_output(cmd, stderr=subprocess.STDOUT, shell=True)
                 if stream:
                     odoo.tools.osutil.zip_dir(dump_dir, stream, include_dir=False, fnct_sort=lambda file_name: file_name != 'dump.sql')
                 else:
@@ -305,7 +301,7 @@ class DbBackup(models.Model):
                     return t
         else:
             cmd.insert(-1, '--format=c')
-            stdin, stdout = odoo.tools.exec_pg_command_pipe(*cmd)
+            stdin, stdout = subprocess.check_output(cmd, stderr=subprocess.STDOUT, shell=True)
             if stream:
                 shutil.copyfileobj(stdout, stream)
             else:

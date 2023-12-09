@@ -21,8 +21,8 @@
 # https://www.odoochain.cn/odoo10_developer_document_offline/
 
 {
-    'name': 'App Web Responsive Fullwidth (form view full width)',
-    'version': '16.23.02.19',
+    'name': 'Web Form Fullwidth, Full screen full width. Chatter Position ',
+    'version': '16.23.12.08',
     'category': 'web',
     'author': 'odoochain.cn',
     'website': 'https://www.odoochain.cn',
@@ -33,19 +33,25 @@
     "currency": "EUR",
     'images': ['static/description/banner.png'],
     'summary': """
-    Form view Responsive full width (fullwidth). Ready for small, medium, large, extra large screen.Ready for enterprise and communicate version.
+    Chatter Position set and Form Responsive full screen, full width (fullwidth).
+    Ready for small, medium, large, extra large screen.Ready for enterprise and communicate version.
+    Easy config the chatter position to bottom or side or Responsive.
     """,
     'description': """
     UI Enhance for Odoo. Form view fullwidth, full screen.
-    ready
+    Easy config the chatter position to bottom or side or Responsive form every user.
     """,
     'depends': [
         'web'
     ],
-    'data': [],
+    'data': [
+        'views/res_users_views.xml',
+        'views/webclient_templates.xml',
+    ],
     'assets': {
         'web.assets_backend': [
             ('after', 'web/static/src/views/**/*', 'app_web_fullwidth/static/src/scss/app_style_after.scss'),
+            '/app_web_fullwidth/static/src/js/*.js'
         ],
     },
 

@@ -15,7 +15,7 @@
 				<attribute name="optional">hide</attribute>
 			</xpath>
 			<xpath expr="//field[@name='is_seo_optimized']" position="attributes">
-				<attribute name="optional">hide</attribute>
+				<attribute name="optional">show</attribute>
 			</xpath>
 			<xpath expr="//field[@name='is_published']" position="attributes">
 				<attribute name="optional">show</attribute>
@@ -25,6 +25,7 @@
                 <field name="website_meta_keywords" optional="show"/>
                 <field name="website_meta_title" optional="hide"/>
                 <field name="website_meta_description" optional="hide"/>
+                <field name="tag_ids" widget="many2many_tags" optional="hide"/>
 			</xpath>
 			<xpath expr="//field[@name='author_id']" position="before">
 				<field name="visits" optional="show"/>
@@ -33,8 +34,8 @@
 				<field name="published_date" optional="hide"/>
 			</xpath>
             <xpath expr="//field[@name='is_seo_optimized']" position="before">
-				<button name="action_post_debug_view" type="object" title="Settings" icon="fa-bug fa-lg" groups="base.group_no_one"/>
-				<button name="action_post_code_view" type="object" title="Source Code" icon="fa-code fa-lg" groups="base.group_no_one"/>
+				<button name="action_post_debug_view" type="object" title="Settings" icon="fa-bug fa-lg"/>
+				<button name="action_post_code_view" type="object" title="Source Code" icon="fa-code fa-lg"/>
 			</xpath>
 		</field>
 	</record>
@@ -52,6 +53,10 @@
 			</xpath>
 			<xpath expr="//field[@name='visits']" position="attributes">
                 <attribute name="readonly">0</attribute>
+			</xpath>
+			<xpath expr="//field[@name='website_meta_keywords']" position="after">
+                <field name="seo_name"/>
+                <field name="website_url"/>
 			</xpath>
 		</field>
 	</record>

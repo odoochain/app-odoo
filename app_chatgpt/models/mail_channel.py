@@ -25,7 +25,7 @@ class Channel(models.Model):
                                     help="Main Ai is the robot help you default.")
     ext_ai_partner_id = fields.Many2one(comodel_name="res.partner", string="Secondary Ai",
                                         domain=[('gpt_id', '!=', None), ('is_chat_private', '=', True)])
-    description = fields.Char('Ai Character', help="Ai would help you act as the Character set.")
+    description = fields.Text('Ai Character', help="Ai would help you act as the Character set.")
     set_max_tokens = fields.Selection([
         ('300', 'Short'),
         ('600', 'Standard'),
@@ -79,7 +79,7 @@ class Channel(models.Model):
     frequency_penalty = fields.Float('避免常用词值', default=1, help="-2~2，值越大越少使用常用词")
     presence_penalty = fields.Float('避免重复词值', default=1, help="-2~2，值越大越少重复词")
 
-    is_current_channel = fields.Boolean('是否当前用户默认频道', compute='_compute_is_current_channel', help='是否当前用户默认微信对话频道')
+    # is_current_channel = fields.Boolean('是否当前用户默认频道', compute='_compute_is_current_channel', help='是否当前用户默认微信对话频道')
 
     def name_get(self):
         result = []

@@ -1,27 +1,27 @@
 # -*- coding: utf-8 -*-
 
 # Created on 2017-11-05
-# author: 欧度智能，https://www.odoochain.cn
+# author: 欧度智能，https://www.odooai.cn
 # email: 300883@qq.com
-# resource of odoochain
+# resource of odooai
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 # Odoo在线中文用户手册（长期更新）
-# https://www.odoochain.cn/documentation/user/10.0/zh_CN/index.html
+# https://www.odooai.cn/documentation/user/10.0/zh_CN/index.html
 
 # Odoo10离线中文用户手册下载
-# https://www.odoochain.cn/odoo10_user_manual_document_offline/
+# https://www.odooai.cn/odoo10_user_manual_document_offline/
 # Odoo10离线开发手册下载-含python教程，jquery参考，Jinja2模板，PostgresSQL参考（odoo开发必备）
-# https://www.odoochain.cn/odoo10_developer_document_offline/
+# https://www.odooai.cn/odoo10_developer_document_offline/
 # description:
 
 
 {
     'name': "odoo Enterprise enhance Pack,企业版界面及操作增强",
-    'version': '16.23.04.08',
-    'author': 'odoochain.cn',
+    'version': '16.23.10.26',
+    'author': 'odooai.cn',
     'category': 'Base',
-    'website': 'https://www.odoochain.cn',
+    'website': 'https://www.odooai.cn',
     'live_test_url': 'https://demo.odooapp.cn',
     'license': 'LGPL-3',
     'sequence': 2,
@@ -61,15 +61,16 @@
         'web_enterprise',
         # 'web_mobile'
     ],
-    'images': ['static/description/banner.png'],
+    'images': ['static/description/banner.png',
+               'static/description/app_web_enterprise_03.jpg',
+               ],
     'data': [
         'views/webclient_templates.xml',
     ],
     'assets': {
         # 企业版变色，注意这个是变量定义，要before
         'web._assets_primary_variables': [
-            ('before', 'web_enterprise/static/src/scss/primary_variables.scss',
-             'app_web_enterprise/static/src/scss/primary_variables.scss'),
+            ('before', 'web_enterprise/static/src/scss/primary_variables.scss', 'app_web_enterprise/static/src/scss/primary_variables.scss'),
         ],
         'web.assets_backend': [
             ('before', 'web/static/src/views/**/*', 'app_web_enterprise/static/src/scss/app_style_before.scss'),
@@ -82,13 +83,11 @@
         # 这里是改样式，要 after处理
         'web.assets_common': [
             ('after', 'web/static/lib/jquery.ui/jquery-ui.css', 'app_web_enterprise/static/lib/jquery.ui/jquery-ui.css'),
-            ('after', 'web_enterprise/static/src/webclient/home_menu/home_menu_background.scss',
-             'app_web_enterprise/static/src/scss/home_menu_background.scss'),
+            ('after', 'web_enterprise/static/src/webclient/home_menu/home_menu_background.scss', 'app_web_enterprise/static/src/scss/home_menu_background.scss'),
         ],
         'web.assets_frontend': [
             # ('after', 'web/static/src/core/**/*', 'app_web_enterprise/static/src/xml/base.xml'),
-            ('after', 'web_enterprise/static/src/webclient/home_menu/home_menu_background.scss',
-             'app_web_enterprise/static/src/scss/home_menu_background.scss'),
+            ('after', 'web_enterprise/static/src/webclient/home_menu/home_menu_background.scss', 'app_web_enterprise/static/src/scss/home_menu_background.scss'),
             'app_web_enterprise/static/src/scss/app_style_website.scss',
         ],
     },
@@ -98,9 +97,10 @@
     # 'test': [
     # ],
 
+    # 'images': ['static/description/app_web_enterprise_03.jpg'],
     'post_load': None,
     'post_init_hook': None,
     'installable': True,
     'application': True,
-    'auto_install': False,
+    'auto_install': True,
 }

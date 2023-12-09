@@ -10,7 +10,7 @@
 
 {
     'name': 'ChatGPT4, China Ali,AiGC Center.Ai服务中心，聚合全网Ai',
-    'version': '16.23.10.11',
+    'version': '16.23.11.10',
     'author': 'odooai.cn',
     'company': 'odooai.cn',
     'maintainer': 'odooai.cn',
@@ -50,6 +50,7 @@
         'mail',
         'queue_job',
         'sale',
+        'website',
     ],
     'data': [
         'security/ir.model.access.csv',
@@ -62,6 +63,7 @@
         'views/res_partner_ai_use_views.xml',
         'views/res_users_views.xml',
         'views/mail_channel_views.xml',
+        'views/gpt_template.xml',
     ],
     'assets': {
         'mail.assets_messaging': [
