@@ -128,7 +128,7 @@ App MRP Bom Product Multi Batch Add
     For Odoo17. Please get from the follow github. Done for 85%.
     https://github.com/guohuadeng/app-odoo/tree/17.0
     White label odoo. UI and Development Enhance.
-    Support odoo 16,15,14,13,12,11,10,9.
+    Support Odoo 17,16,15,14,13,12,11,10,9.
     You can config odoo, make it look like your own platform.
     ============
     1. Deletes Odoo label in footer
@@ -152,7 +152,7 @@ App MRP Bom Product Multi Batch Add
     19. One Click to clear all data (Sometime pls click twice)
     20. Show quick upgrade in app dashboard, click to show module info not go to odoo.com
     21. Can clear and reset account chart. Be cautious
-    22. Update online manual and developer document to odoo12
+    22. Update online manual and developer document to odoo16
     23. Add reset or clear website blog data
     24. Customize Odoo Native Module(eg. Enterprise) Url
     25. Add remove expense data

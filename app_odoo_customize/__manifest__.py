@@ -23,7 +23,7 @@
 
 {
     'name': 'odoo17 Tweak,Ai Employee,Boost,Customize All in One. Customize,UI,Boost,Security,Data',
-    'version': '16.24.01.15',
+    'version': '16.24.04.03',
     'author': 'odooai.cn',
     'category': 'Extra Tools',
     'website': 'https://www.odooai.cn',
@@ -39,7 +39,7 @@
     'depends': [
         'app_common',
         'base_setup',
-        'web',
+        'portal',
         'mail',
         # 'digest',
         # when enterprise
@@ -77,9 +77,11 @@
             'app_odoo_customize/static/src/js/user_menu.js',
             'app_odoo_customize/static/src/js/ribbon.js',
             'app_odoo_customize/static/src/js/dialog.js',
+            'app_odoo_customize/static/src/js/navbar.js',
             'app_odoo_customize/static/src/webclient/*.js',
-            'app_odoo_customize/static/src/webclient/*.xml',
+            'app_odoo_customize/static/src/webclient/user_menu.xml',
             'app_odoo_customize/static/src/xml/res_config_edition.xml',
+            'app_odoo_customize/static/src/xml/debug_templates.xml',
         ],
     },
     'pre_init_hook': 'pre_init_hook',
@@ -117,7 +119,7 @@
     19. One Click to clear all data (Sometime pls click twice)
     20. Show quick upgrade in app dashboard, click to show module info not go to odoo.com
     21. Can clear and reset account chart. Be cautious
-    22. Update online manual and developer document to odoo12
+    22. Update online manual and developer document to odoo16
     23. Add reset or clear website blog data
     24. Customize Odoo Native Module(eg. Enterprise) Url
     25. Add remove expense data
@@ -143,6 +145,7 @@
     45. Add addons path info to module.
     46. Add Help documentation anywhere.  easy get help for any odoo operation or action.
     47. Add ai robot app integration. Use Ai as your employee.
+    48. Add menu debug information of action and xml id.
 
     This module can help to white label the Odoo.
     Also helpful for training and support for your odoo end-user.
@@ -197,5 +200,7 @@
     44. 可配置停用自动用户订阅功能，这会提速odoo，减少资源消耗
     45. 为应用模块增加模块路径信息
     46. 增加快速帮助文档，可以在任意操作中获取相关的 odoo 帮助.
+    47. 增加Ai模块相关信息，可以快速访问ai模块，使用ai员工.
+    48. 增加菜单Debug，可以快速查看每个菜单的调试信息如 action 及 xml id.
     """,
 }
