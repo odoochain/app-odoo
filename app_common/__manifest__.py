@@ -95,5 +95,5 @@
     # 'external_dependencies': {'python': ['pyyaml', 'ua-parser', 'user-agents']},
     'installable': True,
     'application': True,
-    'auto_install': True,
+    'auto_install': False,
 }

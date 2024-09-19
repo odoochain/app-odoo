@@ -38,7 +38,7 @@ def post_init_hook(env):
             rec._compute_complete_name()
         ids = env['stock.location'].sudo().with_context(lang='zh_CN', active_test=False).search([
             ('location_id', '!=', False),
-            ('usage', '!=', 'views'),
+            ('usage', '!=', 'view'),
         ], order='parent_path')
         for rec in ids:
             rec._compute_complete_name()
