@@ -1,16 +1,12 @@
 # -*- coding: utf-8 -*-
 
-import base64
-import io
-import csv
 import os.path
 
 from odoo import api, fields, models, modules, tools, SUPERUSER_ID, _
-from odoo.tools import pycompat
 from odoo.tests import common
 ADMIN_USER_ID = common.ADMIN_USER_ID
 
-def app_quick_import(cr, content_path, sep=None):
+def app_quick_import(env, content_path, sep=None, context={}):
     if not sep:
         sep = '/'
     dir_split = content_path.split(sep)
@@ -24,12 +20,12 @@ def app_quick_import(cr, content_path, sep=None):
     if model_name == 'discuss.channel':
         # todo: 创建discuss.channel时，如果用root用户会报错
         uid = 2
-    env = api.Environment(cr, uid, {})
     if file_type == '.csv':
         file_type = 'text/csv'
     elif file_type in ['.xls', '.xlsx']:
         file_type = 'application/vnd.ms-excel'
-    import_wizard = env['base_import.import'].create({
+    import_wizard = env['base_import.import'].with_context(context)
+    import_wizard = import_wizard.create({
         'res_model': model_name,
         'file_name': file_name,
         'file_type': file_type,
@@ -45,10 +41,12 @@ def app_quick_import(cr, content_path, sep=None):
         preview = import_wizard.parse_preview({
             'has_headers': True,
         })
-    result = import_wizard.execute_import(
-        preview["headers"],
-        preview["headers"],
-        preview["options"]
-    )
-
-
+    else:
+        preview = False
+    
+    if preview:
+        import_wizard.execute_import(
+            preview["headers"],
+            preview["headers"],
+            preview["options"]
+        )
