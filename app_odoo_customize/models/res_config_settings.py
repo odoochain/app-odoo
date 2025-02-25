@@ -386,7 +386,8 @@ class ResConfigSettings(models.TransientModel):
                 })
         except Exception as e:
             pass  # raise Warning(e)
-        
+
+        # 日记账处理
         try:
             rec = self.env['account.journal'].search([])
             rec.write({
@@ -394,7 +395,16 @@ class ResConfigSettings(models.TransientModel):
                 'suspense_account_id': False
             })
         except Exception as e:
-            pass 
+            pass
+            
+        # 公司处理
+        try:
+            rec = self.env['res.company'].search([])
+            rec.write({
+                'chart_template': False,
+            })
+        except Exception as e:
+            pass
            
         seqs = []
 

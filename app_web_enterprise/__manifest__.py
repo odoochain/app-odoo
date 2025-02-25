@@ -18,7 +18,7 @@
 
 {
     'name': "odoo Enterprise enhance Pack,企业版界面及操作增强",
-    'version': '24.08.17',
+    'version': '17.0.24.12.14',
     'author': 'odooai.cn',
     'category': 'Extra tools',
     'website': 'https://www.odooai.cn',
@@ -26,19 +26,15 @@
     'license': 'LGPL-3',
     'sequence': 2,
     'summary': """
-    Ui Enhance pack of odoo Enterprise version
-    1. Add dropdown arrow to parent menu.
-    2. Replace the odoo logo to your company logo in main menu.
-    3. Alway show search in main menu.
-    4. Table and report UI enhance(Grid View).
+    Ui Enhance pack of odoo Enterprise version. OEM Pack for odoo theme. Support mobile theme and dark mode theme.
     """,
     'description': """
     odoo enterprise version UI enhance.
     欧度智能，odooai.cn 的odoo模块。企业版界面增强。
-    1. Ui Enhance pack of odoo Enterprise version
-    odoo企业版界面增强套件，更方便操作
+    1. Ui Enhance pack of odoo Enterprise version. Use comfortable green color
+    odoo企业版界面增强套件，更方便操作。使用更舒适护眼的绿色作为主色。
     2. Add dropdown arrow to parent menu group.
-    多级菜单中出现箭头。
+    多级菜单中出现箭头，导航操作更方便。
     3. Replace the odoo logo or url to your company in menu and page.
     替换主菜单界面的logo为你公司的logo。
     4. Add underline for input field.
@@ -50,12 +46,6 @@
     11. Multi-language Support. Multi-Company Support.
     12. Support Odoo 18,17,16,15,14,13,12, Enterprise and Community and odoo.sh Edition.
     13. Full Open Source.
-    ==========
-    1.
-    2.
-    11. 多语言支持，多公司支持
-    12. Odoo 18,17,16,15,14,13,12, 企业版，社区版，在线SaaS.sh版，等全版本支持
-    13. 代码完全开源
     """,
     'price': 68.00,
     'currency': 'EUR',

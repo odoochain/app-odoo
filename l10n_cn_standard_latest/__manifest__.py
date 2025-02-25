@@ -9,7 +9,7 @@
 
 {
     'name': '2024最新中国会计科目表.企业标准会计.Latest Chinese Accounting for odoo17',
-    'version': '24.02.27',
+    'version': '17.0.24.12.13',
     'author': 'odooai.cn',
     'category': 'Accounting/Localizations/Account Charts',
     'website': 'https://www.odooai.cn',
@@ -22,7 +22,6 @@
     Set chinese account report. 
     """,
     'description': """
-
     最新中国化财务，主要针对标准会计科目表作了优化。
     1. 2024最新会计科目表，处理营改增后会计科目调整。更新至最新税率。odoo 17专用。
     2. 将菜单中设置为"财务"。
@@ -33,7 +32,7 @@
     7. 增加中文数字和阿拉伯数字的转换(需安装cn2an库，pip3 install cn2an)
     8. 注意，必须在没有业务数据，没有会计科目的初始环境。可以使用 "app_odoo_customize" 模块清除财务数据，重置会计科目。
 
-    如果是多语种环境需要自行更改翻译，主要体现在3%,6%,13%增值税处理。
+    如果是多语种环境需要自行更改翻译，主要体现在1%,3%,6%,13%增值税处理。
     中国财务，中国会计，中国城市
     欧度智能，odooai.cn
     The Latest Chinese Account
@@ -48,14 +47,12 @@
     * 税金模板
     """,
     'depends': [
-        'base',
-        'account',
+        'app_account_ztree',
         'app_odoo_customize',
     ],
     'images': ['static/description/banner.png'],
     'data': [
         'views/account_account_views.xml',
-        'views/account_views.xml',
         'data/account_account_tag_data.xml',
         'report/account_report.xml',
         'report/report_voucher.xml',
@@ -64,7 +61,7 @@
     'installable': True,
     'application': True,
     'auto_install': False,
-    'external_dependencies': {
-        'python': ['cn2an']
-    },
+    # 'external_dependencies': {
+    #     'python': ['cn2an']
+    # },
 }

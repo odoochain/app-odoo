@@ -26,7 +26,7 @@
     'sequence': 10,
     'summary': """
     menu admin, fields admin, action admin, views easy admin and search, quick admin navigator by all kind of category. Use for parent children tree list kanban navigator. 
-    ztree widget.Hierarchy Tree.Parent Children relation tree..
+    Hierarchy Tree.Parent Children relation tree..
     """,
     'description': """
     Superbar, zTree widget. 

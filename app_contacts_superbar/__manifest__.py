@@ -26,7 +26,7 @@
     'sequence': 2,
     'summary': """
     Browse contacts by company. Use for parent children tree list kanban navigator. 
-    ztree widget.Hierarchy Tree.Parent Children relation tree..
+    Hierarchy Tree.Parent Children relation tree..
     """,
     'description': """
     Superbar, zTree widget. 

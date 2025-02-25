@@ -132,13 +132,17 @@ GPT-3	A set of models that can understand and generate natural language
         # hook，都正常
         return False
 
+    def get_msg_file_content(self, message):
+        # hook
+        return False
+
     def get_ai(self, data, author_id=False, answer_id=False, param={}):
         #     通用方法
         # author_id: 请求的 partner_id 对象
         # answer_id: 回答的 partner_id 对象
         # param，dict 形式的参数
         # 调整输出为2个参数：res_post详细内容，is_ai是否ai的响应
-        
+
         self.ensure_one()
         # 前置勾子，一般返回 False，有问题返回响应内容，用于处理敏感词等
         res_pre = self.get_ai_pre(data, author_id, answer_id, param)
@@ -148,7 +152,7 @@ GPT-3	A set of models that can understand and generate natural language
         if not hasattr(self, 'get_%s' % self.provider):
             res = _('No robot provider found')
             return res, {}, False
-        
+
         res = getattr(self, 'get_%s' % self.provider)(data, author_id, answer_id, param)
         # 后置勾子，返回处理后的内容
         res_post, usage, is_ai = self.get_ai_post(res, author_id, answer_id,  param)
@@ -175,7 +179,7 @@ GPT-3	A set of models that can understand and generate natural language
         # 后置勾子，返回处理后的内容
         res_post, usage, is_ai = self.get_ai_post(res, author_id, answer_id, param)
         return res
-    
+
     def get_ai_post(self, res, author_id=False, answer_id=False, param=None):
         # hook，高级版要替代
         if param is None:
@@ -202,14 +206,14 @@ GPT-3	A set of models that can understand and generate natural language
         except Exception as e:
             _logger.error('==========app_chatgpt get_ai_post Error: %s' % e)
             return res, False, False
-    
+
     def get_ai_system(self, content=None):
         # 获取基础ai角色设定, role system
         sys_content = content or self.sys_content
         if sys_content:
             return {"role": "system", "content": sys_content}
         return {}
-    
+
     def get_ai_model_info(self):
         self.ensure_one()
         headers = {"Content-Type": "application/json", "Authorization": f"Bearer {self.openapi_api_key}"}
@@ -217,7 +221,7 @@ GPT-3	A set of models that can understand and generate natural language
         o_url = "https://api.openai.com/v1/models/%s" % self.ai_model
         if self.endpoint:
             o_url = self.endpoint.replace("/chat/completions", "") + "/models/%s" % self.ai_model
-        
+
         response = requests.get(o_url, headers=headers, timeout=R_TIMEOUT)
         response.close()
         if response:
@@ -229,16 +233,19 @@ GPT-3	A set of models that can understand and generate natural language
 
     def get_ai_list_model(self):
         self.ensure_one()
-        headers = {"Content-Type": "application/json", "Authorization": f"Bearer {self.openapi_api_key}"}
-        R_TIMEOUT = self.ai_timeout or 120
-        o_url = "https://api.openai.com/v1/models"
-        if self.endpoint:
-            o_url = self.endpoint.replace("/chat/completions", "") + "/models"
-        response = requests.get(o_url, headers=headers, timeout=R_TIMEOUT)
-        response.close()
-        if response:
-            res = response.json()
-            r_text = json.dumps(res, indent=2)
+        if self.provider == 'openai':
+            headers = {"Content-Type": "application/json", "Authorization": f"Bearer {self.openapi_api_key}"}
+            R_TIMEOUT = self.ai_timeout or 120
+            o_url = "https://api.openai.com/v1/models"
+            if self.endpoint:
+                o_url = self.endpoint.replace("/chat/completions", "") + "/models"
+            response = requests.get(o_url, headers=headers, timeout=R_TIMEOUT)
+            response.close()
+            if response:
+                res = response.json()
+                r_text = json.dumps(res, indent=2)
+            else:
+                r_text = 'No response.'
         else:
             r_text = 'No response.'
         raise UserError(r_text)
@@ -256,7 +263,7 @@ GPT-3	A set of models that can understand and generate natural language
         frequency_penalty = param.get('frequency_penalty') if param.get('frequency_penalty') else self.frequency_penalty
         presence_penalty = param.get('presence_penalty') if param.get('presence_penalty') else self.presence_penalty
         request_timeout = param.get('request_timeout') if param.get('request_timeout') else self.ai_timeout
-        
+
         if self.stop:
             stop = self.stop.split(',')
         else:
@@ -296,7 +303,7 @@ GPT-3	A set of models that can understand and generate natural language
                 return res
             else:
                 _logger.warning('=====================openai output data: %s' % response.json())
-    
+
         return _("Response Timeout, please speak again.")
 
     def get_azure(self, data, author_id, answer_id, param={}):
@@ -304,10 +311,10 @@ GPT-3	A set of models that can understand and generate natural language
         # only for azure
         if not self.endpoint:
             raise UserError(_("Please Set your AI robot's endpoint first."))
-        
+
         if not self.api_version:
             raise UserError(_("Please Set your AI robot's API Version first."))
-        
+
         if self.stop:
             stop = self.stop.split(',')
         else:
@@ -331,7 +338,7 @@ GPT-3	A set of models that can understand and generate natural language
             if sys_content:
                 messages.insert(0, sys_content)
         #         暂时不变
-        
+
         client = AzureOpenAI(
             api_version=self.api_version,
             azure_endpoint=self.endpoint,
@@ -363,7 +370,7 @@ GPT-3	A set of models that can understand and generate natural language
             self.endpoint = 'https://api.openai.com/v1/chat/completions'
         elif self.provider == 'azure':
             self.endpoint = 'https://odoo.openai.azure.com'
-            
+
         if self.provider:
             # 取头像
             module_path = modules.get_module_path('app_chatgpt', display_warning=False)
@@ -372,7 +379,7 @@ GPT-3	A set of models that can understand and generate natural language
                 if path:
                     image_file = tools.file_open(path, 'rb')
                     self.image_avatar = base64.b64encode(image_file.read())
-            
+
     @api.onchange('set_ai_model')
     def _onchange_set_ai_model(self):
         if self.set_ai_model:

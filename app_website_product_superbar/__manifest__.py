@@ -27,7 +27,7 @@
     'summary': """
     Browse Product by website category tree. Use for parent children tree list kanban navigator. 
     Easy to navigator and browse any data. Support list, kanban, pivot, graph view. 
-    ztree widget.Hierarchy Tree.Parent Children relation tree..
+    Hierarchy Tree.Parent Children relation tree..
     """,
     'description': """
     Superbar, zTree widget. 

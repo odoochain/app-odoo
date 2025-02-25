@@ -1,12 +1,14 @@
 # -*- coding: utf-8 -*-
 
+import base64
+import io
+import csv
 import os.path
 
 from odoo import api, fields, models, modules, tools, SUPERUSER_ID, _
-from odoo.tests import common
-ADMIN_USER_ID = common.ADMIN_USER_ID
+from odoo.tools import pycompat
 
-def app_quick_import(env, content_path, sep=None, context={}):
+def app_quick_import(env, content_path, sep=None):
     if not sep:
         sep = '/'
     dir_split = content_path.split(sep)
@@ -24,8 +26,7 @@ def app_quick_import(env, content_path, sep=None, context={}):
         file_type = 'text/csv'
     elif file_type in ['.xls', '.xlsx']:
         file_type = 'application/vnd.ms-excel'
-    import_wizard = env['base_import.import'].with_context(context)
-    import_wizard = import_wizard.create({
+    import_wizard = env['base_import.import'].create({
         'res_model': model_name,
         'file_name': file_name,
         'file_type': file_type,
@@ -41,12 +42,8 @@ def app_quick_import(env, content_path, sep=None, context={}):
         preview = import_wizard.parse_preview({
             'has_headers': True,
         })
-    else:
-        preview = False
-    
-    if preview:
-        import_wizard.execute_import(
-            preview["headers"],
-            preview["headers"],
-            preview["options"]
-        )
+    result = import_wizard.execute_import(
+        preview["headers"],
+        preview["headers"],
+        preview["options"]
+    )

@@ -13,13 +13,8 @@
             <field name="applicability">taxes</field>
             <field name="country_id" ref="base.cn"/>
         </record>
-        <record id="tag_cn13_s" model="account.account.tag">
-            <field name="name">增值税13%销项税</field>
-            <field name="applicability">taxes</field>
-            <field name="country_id" ref="base.cn"/>
-        </record>
-        <record id="tag_cn13_p" model="account.account.tag">
-            <field name="name">增值税13%进项税</field>
+        <record id="tag_cn08_dept" model="account.account.tag">
+            <field name="name">8%离境退税</field>
             <field name="applicability">taxes</field>
             <field name="country_id" ref="base.cn"/>
         </record>
@@ -30,21 +25,6 @@
         </record>
         <record id="tag_cn11_dept" model="account.account.tag">
             <field name="name">11%离境退税</field>
-            <field name="applicability">taxes</field>
-            <field name="country_id" ref="base.cn"/>
-        </record>
-        <record id="tag_cn08_dept" model="account.account.tag">
-            <field name="name">8%离境退税</field>
-            <field name="applicability">taxes</field>
-            <field name="country_id" ref="base.cn"/>
-        </record>
-        <record id="tag_cn16_p" model="account.account.tag">
-            <field name="name">增值税16%进项税</field>
-            <field name="applicability">taxes</field>
-            <field name="country_id" ref="base.cn"/>
-        </record>
-        <record id="tag_cn16_s" model="account.account.tag">
-            <field name="name">增值税16%销项税</field>
             <field name="applicability">taxes</field>
             <field name="country_id" ref="base.cn"/>
         </record>

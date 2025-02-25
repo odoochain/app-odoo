@@ -23,7 +23,7 @@
 
 {
     'name': 'odoo Tweak OEM Development Enhance.Boost,Customize,Ai Employee,UI,Security,Remove Data All in One',
-    'version': '24.09.03',
+    'version': '17.0.25.01.26',
     'author': 'odooai.cn',
     'category': 'Extra Tools',
     'website': 'https://www.odooai.cn',
@@ -49,7 +49,6 @@
         'security/res_groups.xml',
         'security/ir.model.access.csv',
         'views/app_odoo_customize_views.xml',
-        'views/app_theme_config_settings_views.xml',
         'views/res_config_settings_views.xml',
         'views/ir_views.xml',
         'views/ir_module_module_views.xml',

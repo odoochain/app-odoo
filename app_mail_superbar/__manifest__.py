@@ -26,7 +26,7 @@
     'sequence': 10,
     'summary': """
     mail search, browse all mail by all kind of category. Use for parent children tree list kanban navigator. 
-    ztree widget.Hierarchy Tree.Parent Children relation tree..
+    Hierarchy Tree.Parent Children relation tree..
     """,
     'description': """
     Superbar, zTree widget. 

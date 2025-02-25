@@ -241,7 +241,7 @@ class Channel(models.Model):
         if hasattr(ai, 'is_translator') and ai.is_translator and ai.ai_model == 'translator':
             return rdata
         chatgpt_channel_id = self.env.ref('app_chatgpt.channel_chatgpt')
-        
+
         if message.body == _('<div class="o_mail_notification">joined the channel</div>'):
             msg = _("Please warmly welcome our new partner %s and send him the best wishes.") % message.author_id.name
         else:
@@ -277,7 +277,7 @@ class Channel(models.Model):
                         chat_count = 1
             else:
                 chat_count = chat_count
-                
+
             if author_id != answer_id.id and self.channel_type == 'chat':
                 # 私聊
                 _logger.info(f'私聊:author_id:{author_id},partner_chatgpt.id:{answer_id.id}')
@@ -291,32 +291,63 @@ class Channel(models.Model):
                 channel = self.env[msg_vals.get('model')].browse(msg_vals.get('res_id'))
                 if hasattr(channel, 'is_private') and channel.description:
                     messages.append({"role": "system", "content": channel.description})
-        
+
             try:
+                # 处理提示词
+                sys_content = '%s%s' % (channel.description if channel.description else "", add_sys_content if add_sys_content else "")
+                if len(sys_content):
+                    messages.append({"role": "system", "content": sys_content})
                 c_history = self.get_openai_context(channel.id, author_id, answer_id, openapi_context_timeout, chat_count)
                 if c_history:
                     messages += c_history
-                messages.append({"role": "user", "content": msg})
+                if message.attachment_ids:
+                    attachment = message.attachment_ids[:1]
+                    file_content = ai.get_msg_file_content(message)
+                    if not file_content:
+                        messages.append({"role": "user", "content": msg})
+                    if attachment.mimetype in ['image/jpeg', 'image/png', 'image/gif', 'image/bmp', 'image/webp']:
+                        messages.append({
+                            "role": "user",
+                            "content": [
+                                {
+                                    "type": "image_url",
+                                    "image_url": {
+                                        "url": file_content,
+                                    },
+                                },
+                                {
+                                    "type": "text",
+                                    "text": msg
+                                }
+                            ]
+                        })
+                    else:
+                        messages.append({"role": "system", "content": file_content})
+                        messages.append({"role": "user", "content": msg})
+                else:
+                    messages.append({"role": "user", "content": msg})
                 msg_len = sum(len(str(m)) for m in messages)
                 # 接口最大接收 8430 Token
-                if msg_len * 2 > ai.max_send_char:
-                    messages = []
-                    if hasattr(channel, 'is_private') and channel.description:
-                        messages.append({"role": "system", "content": channel.description})
-                    messages.append({"role": "user", "content": msg})
-                    msg_len = sum(len(str(m)) for m in messages)
-                    if msg_len * 2 > ai.max_send_char:
-                        new_msg = channel.with_user(user_id).message_post(body=_('您所发送的提示词已超长。'), message_type='comment',
-                                                                          subtype_xmlid='mail.mt_comment',
-                                                                          parent_id=message.id)
+                # if msg_len * 2 > ai.max_send_char:
+                #     messages = []
+                #     if hasattr(channel, 'is_private') and channel.description:
+                #         messages.append({"role": "system", "content": channel.description})
+                #     messages.append({"role": "user", "content": msg})
+                #     msg_len = sum(len(str(m)) for m in messages)
+                #     if msg_len * 2 > ai.max_send_char:
+                #         new_msg = channel.with_user(user_id).message_post(body=_('您所发送的提示词已超长。'), message_type='comment',
+                #                                                           subtype_xmlid='mail.mt_comment',
+                #                                                           parent_id=message.id)
 
                     # if msg_len * 2 >= 8000:
                     # messages = [{"role": "user", "content": msg}]
-                self.get_ai_response(ai, messages, channel, user_id, message)
-                # if sync_config == 'sync':
-                #     self.get_ai_response(ai, messages, channel, user_id, message)
-                # else:
-                #     self.with_delay().get_ai_response(ai, messages, channel, user_id, message)
+                if sync_config == 'sync':
+                    self.get_ai_response(ai, messages, channel, user_id, message)
+                else:
+                    if hasattr(self, 'with_delay'):
+                        self.with_delay().get_ai_response(ai, messages, channel, user_id, message)
+                    else:
+                        self.get_ai_response(ai, messages, channel, user_id, message)
             except Exception as e:
                 raise UserError(_(e))
 

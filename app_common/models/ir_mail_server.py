@@ -22,9 +22,9 @@ class IrMailServer(models.Model):
             if email_to.find('no-reply@odooai.cn') != -1 or email_to.find('postmaster-odoo@odooai.cn') != -1:
                 pass
             elif email_to.find('example.com') != -1 or email_to.find('@sunpop.cn') != -1 or email_to.find('@odooapp.cn') != -1:
-                _logger.error(_("=================Email to ignore: %s") % email_to)
+                _logger.warning(_("=================Email to ignore: %s") % email_to)
                 raise AssertionError(_("Email to ignore: %s") % email_to)
 
         return super(IrMailServer, self).send_email(message, mail_server_id, smtp_server, smtp_port,
-                                                    smtp_user, smtp_password, smtp_encryption, smtp_ssl_certificate, smtp_ssl_private_key, 
+                                                    smtp_user, smtp_password, smtp_encryption, smtp_ssl_certificate, smtp_ssl_private_key,
                                                     smtp_debug, smtp_session)
